@@ -1,5 +1,6 @@
 package com.retocp.controller;
 
+import com.retocp.dto.RegistroClienteDto;
 import com.retocp.entity.Cliente;
 import com.retocp.service.ClienteService;
 import com.retocp.util.ApiResponse;
@@ -17,9 +18,9 @@ public class ClienteController {
     @Autowired
     ClienteService clienteService;
 
-    @PostMapping
-    public ResponseEntity<ApiResponse> insert(@RequestBody Cliente client) {
-        Cliente c = clienteService.insert(client);
+    @PostMapping("/register")
+    public ResponseEntity<ApiResponse> insert(@RequestBody RegistroClienteDto registro) {
+        Cliente c = clienteService.insert(registro);
         return ResponseEntity.ok(ApiResponse.ok("Cliente insertado", c));
     }
 }

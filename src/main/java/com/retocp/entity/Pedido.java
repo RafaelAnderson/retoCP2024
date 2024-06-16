@@ -17,6 +17,12 @@ public class Pedido {
     @Column(name = "id")
     private Integer id;
 
+    @Column(name = "numero", unique = true, nullable = false)
+    private Integer numero;
+
+    @Column(name = "cantidad")
+    private Integer cantidad;
+
     @ManyToOne
     @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
     private Cliente cliente;
