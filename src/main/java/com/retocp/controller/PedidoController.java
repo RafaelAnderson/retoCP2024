@@ -1,5 +1,8 @@
 package com.retocp.controller;
 
+import com.retocp.dto.ActualizarPedido;
+import com.retocp.dto.InsertarPedidoDto;
+import com.retocp.dto.MostrarPedidoDto;
 import com.retocp.entity.Pedido;
 import com.retocp.service.PedidoService;
 import com.retocp.util.ApiResponse;
@@ -15,21 +18,21 @@ public class PedidoController {
     PedidoService pedidoService;
 
     @PostMapping
-    public ResponseEntity<ApiResponse> insert(@RequestBody Pedido pedido) {
+    public ResponseEntity<ApiResponse> insert(@RequestBody InsertarPedidoDto pedido) {
         Pedido p = pedidoService.insert(pedido);
         return ResponseEntity.ok(ApiResponse.ok("Pedido insertado", p));
     }
 
     @PutMapping
-    public ResponseEntity<ApiResponse> put(@RequestBody Pedido pedido) {
-        Pedido p = pedidoService.update(pedido);
+    public ResponseEntity<ApiResponse> put(@RequestBody ActualizarPedido nuevoPedido) {
+        Pedido p = pedidoService.update(nuevoPedido);
         return ResponseEntity.ok(ApiResponse.ok("Pedido actualizado", p));
     }
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<ApiResponse> get(@PathVariable Integer id) {
-        Pedido p = pedidoService.get(id);
-        return ResponseEntity.ok(ApiResponse.ok("Pedido", p));
+        MostrarPedidoDto pedido = pedidoService.get(id);
+        return ResponseEntity.ok(ApiResponse.ok("Pedido", pedido));
     }
 
     @DeleteMapping(path = "/{id}")

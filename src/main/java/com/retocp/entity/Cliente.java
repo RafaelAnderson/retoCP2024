@@ -25,4 +25,8 @@ public class Cliente {
 
     @Column(name = "direccion")
     private String direccion;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
+    private Usuario usuario;
 }
