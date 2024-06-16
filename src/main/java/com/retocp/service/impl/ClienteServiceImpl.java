@@ -9,6 +9,7 @@ import com.retocp.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -22,6 +23,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Transactional
     public Cliente insert(RegistroClienteDto dto) {
         Cliente cliente = Cliente.builder()
                 .nombres(dto.getNombres()).apellidos(dto.getApellidos()).direccion(dto.getDireccion())

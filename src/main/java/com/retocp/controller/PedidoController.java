@@ -24,13 +24,13 @@ public class PedidoController {
     }
 
     @PutMapping
-    public ResponseEntity<ApiResponse> put(@RequestBody ActualizarPedido nuevoPedido) {
+    public ResponseEntity<ApiResponse> update(@RequestBody ActualizarPedido nuevoPedido) {
         Pedido p = pedidoService.update(nuevoPedido);
         return ResponseEntity.ok(ApiResponse.ok("Pedido actualizado", p));
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<ApiResponse> get(@PathVariable Integer id) {
+    public ResponseEntity<ApiResponse> getById(@PathVariable Integer id) {
         MostrarPedidoDto pedido = pedidoService.get(id);
         return ResponseEntity.ok(ApiResponse.ok("Pedido", pedido));
     }

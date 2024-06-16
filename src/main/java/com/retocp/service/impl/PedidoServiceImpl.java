@@ -50,6 +50,7 @@ public class PedidoServiceImpl implements PedidoService {
                 .nombreCliente(pedido.getCliente().getNombres().concat(" ".concat(pedido.getCliente().getApellidos())))
                 .nombreProducto(pedido.getProducto().getNombre())
                 .precioProducto(pedido.getProducto().getPrecio())
+                .cantidadProducto(pedido.getCantidad())
                 .precioTotal(pedido.getProducto().getPrecio().multiply(BigDecimal.valueOf(pedido.getCantidad())))
                 .build();
     }

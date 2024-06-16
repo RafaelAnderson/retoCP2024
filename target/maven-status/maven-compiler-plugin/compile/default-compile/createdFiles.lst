@@ -1,7 +1,10 @@
+com\retocp\dto\RegistroClienteDto$RegistroClienteDtoBuilder.class
 com\retocp\security\TokenUtils.class
+com\retocp\dto\ActualizarPedido$ActualizarPedidoBuilder.class
 com\retocp\config\SwaggerConfig.class
 com\retocp\entity\Usuario.class
 com\retocp\service\impl\ClienteServiceImpl.class
+com\retocp\dto\InsertarPedidoDto$InsertarPedidoDtoBuilder.class
 com\retocp\dto\ActualizarPedido.class
 com\retocp\repository\UsuarioRepository.class
 com\retocp\service\PedidoService.class
